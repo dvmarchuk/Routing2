@@ -8,10 +8,11 @@ import { HomeComponent } from './home/home.component';
 import { CarsComponent } from './cars/cars.component';
 import { FullCarComponent } from './full-car/full-car.component';
 import { CarComponent } from './car/car.component';
+import {AppRoutingModule} from './app-routing.module';
 
 
 @NgModule({
-  declarations: [
+  declarations:  [
     AppComponent,
     HomeComponent,
     CarsComponent,
@@ -21,14 +22,7 @@ import { CarComponent } from './car/car.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot([
-      {path: 'cars', component: CarsComponent,
-        children : [
-          {path: ':id', component: FullCarComponent}
-        ]
-      },
-      {path: 'all-cars', redirectTo: 'cars', pathMatch: 'full'}
-    ])
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
